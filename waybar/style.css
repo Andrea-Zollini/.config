@@ -43,14 +43,17 @@
 
 window#waybar {
     background: transparent;
-    background-color: #1e1e2e;
-    color: #cdd6f4;
+    /* background-color: #1A2521; */
+    background-color: transparent;
+    color: #e0e0e0;
     transition-property: background-color;
     transition-duration: 0.1s;
+    min-height: 100px;
+    margin-left: 20px;
 }
 
 #window {
-    margin: 2px;
+    margin: 10px;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -66,15 +69,27 @@ button:hover {
     border-top: 2px solid #11111b;
 }
 
+#workspaces {
+    border: 2px solid #e0e0e0;
+}
+
 #workspaces button {
-    padding: 0 4px;
+    padding: 0 10px;
+    color: #e0e0e0;
+    margin: 2px;
+    border: 2px solid #e0e0e0;
 }
 
 #workspaces button.focused {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: rgba(255, 0, 0, 1);
-    border-top: 2px solid #89b4fa;
+    background-color: #e0e0e0;
+    color: #1C2842;
 }
+
+#workspaces button.active {
+    background-color: #e0e0e0;
+    color: #1C2842;
+}
+
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
@@ -97,24 +112,33 @@ button:hover {
     padding-right: 4px;
 }
 
+#battery {
+    border: 2px solid #e0e0e0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 #clock {
-    color: #eba0ac;
-    border-bottom: 2px solid #eba0ac;
+    color: red;
+
+    border-bottom: 2px solid #e0e0e0;
 }
 
 #clock.date {
-    color: #cba6f7;
-    border-bottom: 2px solid #cba6f7;
+    color: #e0e0e0;
+    border: 2px solid #e0e0e0;
+    padding: 0 20px;
 }
 
 #pulseaudio {
-    color: #89b4fa;
-    border-bottom: 2px solid #89b4fa;
+    color: #e0e0e0;
+    border: 2px solid #e0e0e0;
+    padding: 0 10px;
 }
 
 #network {
-    color: #f9e2af;
-    border-bottom: 2px solid #f9e2af;
+    color: #e0e0e0;
+    border: 2px solid #e0e0e0;
 }
 
 #idle_inhibitor {
@@ -128,23 +152,16 @@ button:hover {
 
 #battery.charging,
 #battery.plugged {
-    color: #a6e3a1;
-    border-bottom: 2px solid #a6e3a1;
+    color: #e0e0e0;
+    border: 2px solid #e0e0e0;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
+    margin-left: 10px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right>widget:last-child>#workspaces {
     margin-right: 0;
-}
-
-#custom-vpn {
-    color: #b4befe;
-    border-radius: 15px;
-    padding-left: 6px;
-    padding-right: 6px;
 }
