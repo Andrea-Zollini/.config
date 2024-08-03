@@ -112,7 +112,9 @@ button:hover {
     padding-right: 4px;
 }
 
-#battery {
+#battery,
+#cpu,
+#memory {
     border: 2px solid #e0e0e0;
     padding-left: 10px;
     padding-right: 10px;

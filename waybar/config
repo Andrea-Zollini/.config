@@ -6,7 +6,6 @@
         "custom/media"
     ],
     "modules-center": [
-        // "clock",
         "clock#date"
     ],
     "modules-right": [
@@ -15,7 +14,8 @@
         // "custom/vpn",
         "network",
         "pulseaudio",
-        // "clock",
+        "cpu",
+        "memory",
         "battery",
         "tray"
     ],
@@ -101,11 +101,17 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/weather": {
-        "format": "{}",
-        "interval": 3600,
-        "exec": "curl -s 'https://wttr.in/~41.03508,28.98331?format=1'",
-        "exec-if": "ping wttr.in -c1"
+    "cpu": {
+        "interval": 10,
+        "tooltip": false,
+        "format": "{usage}% CPU",
+        "format-float": 1
+    },
+    "memory": {
+        "interval": 10,
+        "tooltip": false,
+        "format": "{used} / {total} GB RAM",
+        "format-float": 1
     },
     "network": {
         "format-wifi": "     {essid}", // ({signalStrength}%)
@@ -113,7 +119,7 @@
         "interval": 3,
         "format-linked": "{ifname} (No IP) ",
         "format": "  ",
-        "format-disconnected": "",
+        "format-disconnected": "⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click": "./.config/scripts/wifi.sh",
         //"on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
