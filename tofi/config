@@ -167,7 +167,7 @@
 ### Window theming
 #
 	# Width and height of the window. Can be pixels or a percentage.
-	width = 1920
+	width = 1900
 	height = 40
 
 	# Window background color
@@ -213,7 +213,7 @@
 	#
 	# Supported values: top-left, top, top-right, right, bottom-right,
 	# bottom, bottom-left, left, center.
-	anchor = bottom-left
+	anchor = bottom
 
 	# Set the size of the exclusive zone.
 	#
