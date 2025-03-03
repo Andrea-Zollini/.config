@@ -31,7 +31,7 @@ local function toggle_theme()
 end
 
 -- Keymap to toggle theme
-vim.api.nvim_set_keymap('n', '<leader>ct', ':lua require("colorscheme").toggle_theme()<CR>', { noremap = true, silent = true, desc = 'Toggle Catppuccin Theme' })
+vim.api.nvim_set_keymap('n', '<leader>ct', ':lua require("plugins.colorscheme").toggle_theme()<CR>', { noremap = true, silent = true, desc = 'Toggle Catppuccin Theme' })
 
 return {
   toggle_theme = toggle_theme,

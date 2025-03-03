@@ -1,0 +1,56 @@
+{
+  "parser-directories": [
+    "/home/andrea/github",
+    "/home/andrea/src",
+    "/home/andrea/source"
+  ],
+  "theme": {
+    "function.builtin": {
+      "color": 26,
+      "bold": true
+    },
+    "embedded": null,
+    "keyword": 56,
+    "string": 28,
+    "attribute": {
+      "color": 124,
+      "italic": true
+    },
+    "constant": 94,
+    "punctuation.bracket": 239,
+    "property": 124,
+    "string.special": 30,
+    "tag": 18,
+    "function": 26,
+    "type": 23,
+    "punctuation.delimiter": 239,
+    "variable.builtin": {
+      "bold": true
+    },
+    "constant.builtin": {
+      "color": 94,
+      "bold": true
+    },
+    "comment": {
+      "color": 245,
+      "italic": true
+    },
+    "module": 136,
+    "variable.parameter": {
+      "underline": true
+    },
+    "type.builtin": {
+      "bold": true,
+      "color": 23
+    },
+    "constructor": 136,
+    "operator": {
+      "color": 239,
+      "bold": true
+    },
+    "number": {
+      "color": 94,
+      "bold": true
+    }
+  }
+}
