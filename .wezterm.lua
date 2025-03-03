@@ -4,13 +4,22 @@ local wezterm = require 'wezterm'
 -- wezterm.config_builder()
 local config = wezterm.config_builder()
 
--- Use Catppuccin Mocha color scheme
-config.color_scheme = 'Catppuccin Mocha'
+
+-- Default theme
+local dark_theme = 'Catppuccin Mocha'
+local light_theme = 'Catppuccin Latte'
+local current_theme = dark_theme
+
+config.color_scheme = current_theme
 config.font = wezterm.font('JetBrains Mono')
 config.font_size = 12.0
+config.initial_rows = 35
+config.initial_cols = 140
+config.enable_tab_bar = false
+-- config.window_decorations = "NONE"
 
 -- Set PowerShell with its full path and proper arguments
-config.default_prog = {'powershell.exe', '-NoLogo'}
+config.default_prog = {'wsl.exe', '-d', 'Ubuntu-24.04'}
 
 -- Change exit behavior to hold the pane open even when the process exits
 config.exit_behavior = 'Hold'
@@ -26,9 +35,17 @@ local function toggle_tab_bar(window)
     window:set_config_overrides(overrides)
 end
 
-config.initial_rows = 35
-config.initial_cols = 150
--- config.window_decorations = "NONE"
+
+-- Function to toggle the theme
+local function toggle_theme(window, pane)
+  if config.color_scheme == dark_theme then
+    config.color_scheme = light_theme
+  else
+    config.color_scheme = dark_theme
+  end
+  window:set_config_overrides({ color_scheme = config.color_scheme })
+end
+
 
 -- Key bindings
 config.keys = { -- Alt + L to open a vertical pane
@@ -118,6 +135,13 @@ config.keys = { -- Alt + L to open a vertical pane
     key = "D",
     mods = "ALT|SHIFT",
     action = wezterm.action.ShowTabNavigator
-}}
+},
+{
+    key = 'C',
+    mods = 'ALT|SHIFT',
+    action = wezterm.action_callback(function(window, pane)
+      toggle_theme(window, pane)
+    end),
+},}
 
 return config
