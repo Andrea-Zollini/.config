@@ -21,4 +21,11 @@ require('config')
 -- Load plugins
 require('plugins')
 
-
+-- Force blade filetype
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = "*.blade.php",
+  callback = function()
+    vim.bo.filetype = "blade"
+    vim.cmd("TSBufEnable highlight")
+  end
+})

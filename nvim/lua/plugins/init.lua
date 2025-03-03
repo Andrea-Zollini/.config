@@ -53,4 +53,19 @@ return require('lazy').setup({
       require('plugins.autopairs')
     end,
   },
+
+  -- Treesitter for syntax highlighting
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+      require('plugins.treesitter')
+    end,
+  },
+
+  -- Commentary
+  {
+    'tpope/vim-commentary',
+    lazy = false, -- Load immediately (not lazy-loaded)
+  },
 })

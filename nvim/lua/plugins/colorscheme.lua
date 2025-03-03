@@ -1,15 +1,39 @@
 -- Colorscheme Configuration
-require('catppuccin').setup({
-  flavour = 'mocha', -- Set the flavor to Mocha
-  transparent_background = false, -- Set to true if you want a transparent background
-  integrations = {
-    telescope = true, -- Enable Telescope integration
-    mason = true, -- Enable Mason integration
-    native_lsp = { -- Use 'native_lsp' instead of 'lspconfig'
-      enabled = true,
-    },
-  },
-})
+local catppuccin = require('catppuccin')
 
--- Set colorscheme
-vim.cmd.colorscheme('catppuccin')
+local current_flavour = 'macchiato' -- Start with Macchiato
+
+local function setup_catppuccin(flavour)
+  catppuccin.setup({
+    flavour = flavour,
+    transparent_background = false,
+    integrations = {
+      telescope = true,
+      mason = true,
+      native_lsp = {
+        enabled = true,
+      },
+    },
+  })
+  vim.cmd.colorscheme('catppuccin')
+end
+
+-- Initial setup
+setup_catppuccin(current_flavour)
+
+local function toggle_theme()
+  if current_flavour == 'latte' then
+    current_flavour = 'macchiato'
+  else
+    current_flavour = 'latte'
+  end
+  setup_catppuccin(current_flavour)
+end
+
+-- Keymap to toggle theme
+vim.api.nvim_set_keymap('n', '<leader>ct', ':lua require("colorscheme").toggle_theme()<CR>', { noremap = true, silent = true, desc = 'Toggle Catppuccin Theme' })
+
+return {
+  toggle_theme = toggle_theme,
+}
+
